@@ -1063,10 +1063,9 @@ public class A_Vprincipal extends javax.swing.JFrame {
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
         // TODO add your handling code here:
-        switch (cWprioridad) {
-            case true ->
+        if (cWprioridad) {
                 colaWprio.eliminar(TxtColas);
-            case false ->
+}else{
                 colaSen.eliminar(TxtColas);
         }
         TxtColas.append("\n   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -\n\n");
@@ -1083,10 +1082,9 @@ public class A_Vprincipal extends javax.swing.JFrame {
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         // TODO add your handling code here:
-        switch (cWprioridad) {
-            case true ->
+        if (cWprioridad) {
                 colaWprio.mostrar(TxtColas);
-            case false ->
+}else{
                 colaSen.mostrar(TxtColas);
         }
         TxtColas.append("   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -\n\n");
@@ -1321,17 +1319,16 @@ public class A_Vprincipal extends javax.swing.JFrame {
         int validar = 0;
 
         if (tiCoFu == 1) {
-            switch (cWprioridad) {
-                case true -> {
+            if (cWprioridad) {
                     if (colaWprio.esNuevo(L_leer1) == false) {
                         validar = 1;
                     }
                 }
-                case false -> {
+                else {
                     if (colaSen.esNuevo(L_leer1) == false) {
                         validar = 1;
                     }
-                }
+                
             }
         }
 
@@ -1344,10 +1341,9 @@ public class A_Vprincipal extends javax.swing.JFrame {
                     hideTcolas1.setVisible(true);
                 }
                 case 2 -> {
-                    switch (cWprioridad) {
-                        case true ->
+                    if (cWprioridad) {
                             colaWprio.buscar(L_leer1, TxtColas);
-                        case false ->
+                    }else{
                             colaSen.buscar(L_leer1, TxtColas);
                     }
                     TxtColas.append("   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -\n\n");
@@ -1386,13 +1382,12 @@ public class A_Vprincipal extends javax.swing.JFrame {
         L_leer3 = "";
         L_leer3 = hideTcolas2.getText().trim();
         hideTcolas2.setEnabled(false);
-        switch (cWprioridad) {
-            case true -> {
+        if (cWprioridad) {
                 hideTcolas2.setEnabled(false);
                 hide3Colas.setVisible(true);
                 hideTcolas3.setVisible(true);
             }
-            case false -> {
+            else {
                 colaSen.agregar(L_leer1, L_leer2, L_leer3);
                 TxtColas.append(" * La reunión se añadió a la agenda.\n\n");
                 TxtColas.append("   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -\n\n");
@@ -1410,7 +1405,7 @@ public class A_Vprincipal extends javax.swing.JFrame {
                 hideTcolas1.setVisible(false);
                 hideTcolas2.setVisible(false);
                 jCheckBox1.setEnabled(true);
-            }
+            
 
         }
     }//GEN-LAST:event_hideTcolas2ActionPerformed
